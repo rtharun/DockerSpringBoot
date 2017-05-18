@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dockerdemo-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: dockerdemo
+    spec:
+      containers:
+      - name: dockerdemo
+        image: travuru/dockerdemo
+        ports:
+        - name: app-port
+          containerPort: 8080
